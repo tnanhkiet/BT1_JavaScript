@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT1 JavaScript</title>
+</head>
+<body>
+    <script>
+        // Bài 1
+        function customCalc(...num) {
+            let sum = 0
+            num.sort(function(a, b) {
+                return b - a
+            })
+            for (const a of num) {
+                sum += a;
+            }
+            const avg = sum / num.length;
+            var obj = {
+                max: num[0],
+                min: num[num.length-1],
+                avg: avg,
+                sum: sum,
+            }
+            return obj
+        }
+        console.log(customCalc(4, 7, 32, 6, 3, 6, 22, 44))
+        // Bài 2a
+        function customFilter(arr, callback) {
+            var output = []
+            for ( i = 0; i < arr.length; i++) {
+                if(arr[i]) {
+                    var result = callback(arr[i], i, arr)
+                    if (result) {
+                        output.push(arr[i])
+                    }
+                }
+            }
+            return output
+        }
+        // Bài 2b
+        console.log(customFilter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], (value) => value % 2 === 0))
+    </script>
+</body>
+</html>
+
